@@ -1,11 +1,12 @@
 import App from '../components/App';
 
-const Home = () => {
+const People = () => {
 	return (
 		<>
+        <h1>Personajes</h1>
 			<App />
 		</>
 	);
 };
 
-export default Home;
+export default People;

@@ -1,47 +1,26 @@
 import { useRouteError } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
 
 const ErrorPage = () => {
-	const error = useRouteError();
-	console.log(error);
+    const error = useRouteError();
+    console.log(error);
 
-	const cardStyle = {
-		width: '37rem',
-	};
-
-	return (
-		<div className='row p-3'>
-			<div className='col'></div>
-			<div
-				className='card'
-				style={cardStyle}
-			>
-				<div className='card-body text-center'>
-					<h3 className='card-title'>
-						Tengo un mal presentimiento sobre esto.
-					</h3>
-					<h3 className='card-title'>Roooarrgh ur roo.</h3>
-					<br />
-					<h5 className='card-subtitle mb-2 text-body-secondary'>
-						Disculpen por las molestias causadas.
-					</h5>
-					<h5 className='card-subtitle mb-2 text-body-secondary'>
-						Grrrrraaaarrrrr.
-					</h5>
-					<br />
-					<p>
-						<i>{error.statusText || error.message}</i>
-					</p>
-					<a
-						href='/'
-						className='card-link'
-					>
-						Volver
-					</a>
-				</div>
-			</div>
-			<div className='col'></div>
-		</div>
-	);
+    return (
+        <Card bg='dark' className="text-center text-warning w-50 mx-auto mt-5">
+            <Card.Header>Informe de daños</Card.Header>
+            <Card.Body>
+                <Card.Title>Tengo un mal presentimiento sobre esto. <br />
+                    Roooarrgh ur roo.</Card.Title>
+                <Card.Text>
+                    Disculpen por las molestias causadas. <br />
+                    Grrrrraaaarrrrr.
+                </Card.Text>
+                <Button variant="outline-warning" href='/'>Ir al Inicio</Button>
+            </Card.Body>
+            <Card.Footer>{error.statusText || error.message}</Card.Footer>
+        </Card>
+    );
 };
 
 export default ErrorPage;

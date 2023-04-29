@@ -1,6 +1,7 @@
 import CardsComponent from "../components/Card";
 
 const Vehículos = () => {
+
     const vehicles = {
         "message": "ok",
         "total_records": 39,
@@ -206,15 +207,15 @@ const Vehículos = () => {
         ]
     }
 
-    const url = `https://starwars-visualguide.com/assets/img/vehicles/4.jpg`
+    const PhotoUrl = 'https://starwars-visualguide.com/assets/img/vehicles/'
 
     return (
         <>
             {
-                vehicles.results.map(({ vehicle }, index) => {
+                vehicles.results.map((vehicle, index) => {
                     return (
                         <CardsComponent key={index}
-                            PhotoUrl={'https://starwars-visualguide.com/assets/img/vehicles/'}
+                            PhotoUrl={PhotoUrl}
                             uid={vehicle.uid}
                             name={vehicle.name}
                             url={vehicle.url} />

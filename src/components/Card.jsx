@@ -2,7 +2,7 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import PropTypes from 'prop-types';
 
-function CardsComponent({ PhotoUrl, uid, name, url }) {
+function CardsComponent(PhotoUrl, uid, name, url) {
 
     return (
         <Card style={{ width: '18rem' }}>

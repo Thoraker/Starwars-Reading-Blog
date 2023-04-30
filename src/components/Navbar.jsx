@@ -29,7 +29,7 @@ const NavbarComponent = () => {
         >
             <Container fluid >
                 <Navbar.Toggle aria-controls='navbarScroll' />
-                <Link to='/' style={styleLinksTo} className='text-warning'><img src='src/img/StarWarsLogo.svg' style={styleImg} /></Link>
+                <Link to='/' style={styleLinksTo} className='text-warning'><img src='/src/img/StarWarsLogo.svg' style={styleImg} /></Link>
                 <Navbar.Brand><h1 className='text-warning px-3 fs-3'>Starwars Blog</h1></Navbar.Brand>
                 <Nav
                     className='me-auto my-2 my-lg-0'

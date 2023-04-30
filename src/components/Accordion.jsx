@@ -1,13 +1,6 @@
 import Accordion from 'react-bootstrap/Accordion';
 
-function AccordionComponent() {
-    const sections = ['people', 'planets', 'vehicles']
-
-    const dataSections = async (array) => {
-        array.map()
-
-        const url = `https://www.swapi.tech/api/${prop}?page=1&limit=100`
-    }
+const AccordionComponent = () => {
 
     return (
         <Accordion>

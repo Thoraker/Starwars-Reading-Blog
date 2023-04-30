@@ -1,8 +1,10 @@
+import AccordionComponent from "../components/Accordion";
+
 const Home = () => {
     return (
-        <div>
-            <h1>Secciones</h1>
-        </div>
+        <>
+            <AccordionComponent />
+        </>
     );
 };
 

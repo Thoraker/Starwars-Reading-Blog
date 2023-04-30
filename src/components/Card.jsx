@@ -2,18 +2,17 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import PropTypes from 'prop-types';
 
-function CardsComponent(PhotoUrl, uid, name, url) {
-
+function CardsComponent(props) {
+    console.log(props, 'props');
     return (
-        <Card style={{ width: '18rem' }}>
-            <Card.Img variant="top" src={PhotoUrl + uid + '.jpg'} />
+        <Card style={{ width: '15rem' }} bg='dark' text='muted'>
+            <Card.Img variant="top" src={props.PhotoUrl + props.uid + '.jpg'} />
             <Card.Body>
-                <Card.Title>{name}</Card.Title>
+                <Card.Title>{props.name}</Card.Title>
                 <Card.Text>
-                    Some quick example text to build on the card title and make up the
-                    bulk of the cards content.
+                    Leer Mas...
                 </Card.Text>
-                <Button variant="primary">Go somewhere</Button>
+                <Button variant="outline-secondary">Go somewhere</Button>
             </Card.Body>
         </Card>
     );

@@ -8,6 +8,7 @@ import People from './routes/People';
 import App from './routes/App';
 import Vehículos from './routes/Vehiculos';
 import Planetas from './routes/Planetas';
+import Home from './routes/Home';
 
 const domNode = document.getElementById('root');
 const root = createRoot(domNode);
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
         element: <App />,
         errorElement: <ErrorPage />,
         children: [
+            {
+                path: '/',
+                element: <Home />,
+            },
             {
                 path: 'people',
                 element: <People />,

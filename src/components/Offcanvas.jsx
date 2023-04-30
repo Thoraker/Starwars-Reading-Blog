@@ -10,10 +10,11 @@ const OffcanvasComponent = () => {
 
     return (
         <>
-            <Button variant="outline-danger" onClick={handleShow}>
+            <Button variant="outline-danger" onClick={handleShow}
+                className='mx-2'
+            >
                 <i className="bi bi-bookmark-heart"></i>
             </Button>
-
             <Offcanvas show={show} onHide={handleClose} placement='end'>
                 <Offcanvas.Header closeButton>
                     <Offcanvas.Title>Lista de favoritos</Offcanvas.Title>

@@ -1,12 +1,11 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import PropTypes from 'prop-types';
+import { propTypes } from "react-bootstrap/esm/Image";
 
 function CardsComponent(props) {
-    console.log(props, 'props');
     return (
         <Card style={{ width: '15rem' }} bg='dark' text='muted'>
-            <Card.Img variant="top" src={props.PhotoUrl + props.uid + '.jpg'} />
+            <img src={props.PhotoUrl + props.uid + '.jpg'} className='card-img-top' alt={props.name} />
             <Card.Body>
                 <Card.Title>{props.name}</Card.Title>
                 <Card.Text>
@@ -21,8 +20,8 @@ function CardsComponent(props) {
 export default CardsComponent;
 
 CardsComponent.propTypes = {
-    PhotoUrl: PropTypes.string,
-    uid: PropTypes.string,
-    name: PropTypes.string,
-    url: PropTypes.string
+    PhotoUrl: propTypes.string,
+    uid: propTypes.string,
+    name: propTypes.string,
+    url: propTypes.string
 }

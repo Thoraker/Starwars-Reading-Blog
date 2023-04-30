@@ -2,13 +2,12 @@ import { useEffect, useState } from "react";
 import CardsComponent from "../components/Card";
 import GetData from "../assets/Fetch";
 import { Row, Stack } from "react-bootstrap";
+import { propTypes } from "react-bootstrap/esm/Image";
 
-const Vehículos = () => {
-    const vehiclesUrl = 'https://www.swapi.tech/api/vehicles?page=1&limit=100'
-
+const Vehículos = ({ props }) => {
     const [vehiclesData, setDataVehicles] = useState([])
     useEffect(() => {
-        GetData(vehiclesUrl)
+        GetData(props)
             .then(data => setDataVehicles(data.results))
     }, [])
 
@@ -38,3 +37,7 @@ const Vehículos = () => {
 };
 
 export default Vehículos;
+
+Vehículos.propTypes = {
+    props: propTypes.object
+}

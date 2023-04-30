@@ -13,6 +13,16 @@ import Home from './routes/Home';
 const domNode = document.getElementById('root');
 const root = createRoot(domNode);
 
+const allPeopleUrl = 'https://www.swapi.tech/api/people?page=1&limit=100'
+const allVehiclesUrl = 'https://www.swapi.tech/api/vehicles?page=1&limit=100'
+const allPlanetsUrl = 'https://www.swapi.tech/api/planets?page=1&limit=100'
+
+const sections = [
+    { name: 'Personajes', url: 'https://www.swapi.tech/api/people?page=1&limit=10' },
+    { name: 'Vehículos', url: 'https://www.swapi.tech/api/vehicles?page=1&limit=10' },
+    { name: 'Planetas', url: 'https://www.swapi.tech/api/planets?page=1&limit=10' },
+]
+
 const router = createBrowserRouter([
     {
         path: '/',
@@ -21,19 +31,19 @@ const router = createBrowserRouter([
         children: [
             {
                 path: '/',
-                element: <Home />,
+                element: <Home props={sections} />,
             },
             {
                 path: 'people',
-                element: <People />,
+                element: <People props={allPeopleUrl} />,
             },
             {
                 path: 'vehicles',
-                element: <Vehículos />,
+                element: <Vehículos props={allVehiclesUrl} />,
             },
             {
                 path: 'Planets',
-                element: <Planetas />,
+                element: <Planetas props={allPlanetsUrl} />,
             }
         ],
     },

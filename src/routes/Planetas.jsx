@@ -1,43 +1,24 @@
-import { useEffect, useState } from "react";
-import GetData from "../assets/Fetch";
-import CardsComponent from "../components/Card";
-import { Row, Stack } from "react-bootstrap";
-import { propTypes } from "react-bootstrap/esm/Image";
+import { useLoaderData } from "react-router-dom";
+import ShowRoom from "../components/ShowRoom";
 
-const Planetas = ({ props }) => {
-    const [planetsData, setDataVehicles] = useState([])
-    useEffect(() => {
-        GetData(props)
-            .then(data => setDataVehicles(data.results))
-    }, [])
+const allPlanetsUrl = 'https://www.swapi.tech/api/planets?page=1&limit=100'
 
-    const PhotoUrl = 'https://starwars-visualguide.com/assets/img/planets/'
+const Planetas = () => {
+    const data = useLoaderData()
 
     return (
         <>
-            <h1 className="text-warning">Personajes</h1>
-            <Stack direction="horizontal" gap={3}>
-                <Row xs={1} md={3} className="g-4">
-                    {
-                        planetsData.map((vehicle, index) => {
-                            return (
-                                <CardsComponent key={index}
-                                    uid={vehicle.uid}
-                                    name={vehicle.name}
-                                    url={vehicle.url}
-                                    PhotoUrl={PhotoUrl}
-                                />
-                            )
-                        })
-                    }
-                </Row>
-            </Stack>
+            <h1 className="text-warning">Planetas</h1>
+            <ShowRoom props={data} />
         </>
     );
 };
 
 export default Planetas;
 
-Planetas.propTypes = {
-    props: propTypes.object
+export const planetsLoader = async () => {
+    const response = await fetch(allPlanetsUrl)
+    const responseJson = await response.json()
+    const data = { name: 'Personajes', results: responseJson.results, imgUrl: 'https://starwars-visualguide.com/assets/img/planets/' }
+    return data
 }

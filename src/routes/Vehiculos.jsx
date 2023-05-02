@@ -1,43 +1,24 @@
-import { useEffect, useState } from "react";
-import CardsComponent from "../components/Card";
-import GetData from "../assets/Fetch";
-import { Row, Stack } from "react-bootstrap";
-import { propTypes } from "react-bootstrap/esm/Image";
+import { useLoaderData } from "react-router-dom";
+import ShowRoom from "../components/ShowRoom";
 
-const Vehículos = ({ props }) => {
-    const [vehiclesData, setDataVehicles] = useState([])
-    useEffect(() => {
-        GetData(props)
-            .then(data => setDataVehicles(data.results))
-    }, [])
+const allVehiclesUrl = 'https://www.swapi.tech/api/vehicles?page=1&limit=100'
 
-    const PhotoUrl = 'https://starwars-visualguide.com/assets/img/vehicles/'
+const Vehículos = () => {
+    const data = useLoaderData()
 
     return (
         <>
-            <h1 className="text-warning">Personajes</h1>
-            <Stack direction="horizontal" gap={3}>
-                <Row xs={1} md={3} className="g-4">
-                    {
-                        vehiclesData.map((vehicle, index) => {
-                            return (
-                                <CardsComponent key={index}
-                                    uid={vehicle.uid}
-                                    name={vehicle.name}
-                                    url={vehicle.url}
-                                    PhotoUrl={PhotoUrl}
-                                />
-                            )
-                        })
-                    }
-                </Row>
-            </Stack>
+            <h1 className="text-warning">Vehículos</h1>
+            <ShowRoom props={data} />
         </>
     );
 };
 
 export default Vehículos;
 
-Vehículos.propTypes = {
-    props: propTypes.object
+export const vehiclesLoader = async () => {
+    const response = await fetch(allVehiclesUrl)
+    const responseJson = await response.json()
+    const data = { name: 'Personajes', results: responseJson.results, imgUrl: 'https://starwars-visualguide.com/assets/img/vehicles/' }
+    return data
 }

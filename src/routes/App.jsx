@@ -12,3 +12,8 @@ const App = () => {
 };
 
 export default App;
+
+export const favListLoader = () => {
+    const favList = []
+    return favList
+}

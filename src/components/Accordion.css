@@ -1,0 +1,13 @@
+.accordion {
+    --bs-accordion-bg: #ffffff00;
+    --bs-accordion-border-color: #ffc107;
+}
+
+.accordion-button {
+    color: #ffc107;
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: #373b3e;
+    color: #ffc107;
+}

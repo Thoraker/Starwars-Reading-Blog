@@ -11,8 +11,6 @@ import PropTypes from 'prop-types'
 
 const NavbarComponent = ({ state }) => {
 
-    console.log(state);
-
     const styleLinksTo = {
         maxHeight: '200px',
         textDecoration: 'none',

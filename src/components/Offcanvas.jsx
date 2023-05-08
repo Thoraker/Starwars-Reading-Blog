@@ -8,14 +8,12 @@ const OffcanvasComponent = ({ state }) => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    console.log(state);
-
     return (
         <>
             <button type="button" className="btn btn-outline-danger position-relative" onClick={e => handleShow()}>
                 <i className="bi bi-bookmark-heart" ></i>
                 <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                    10
+                    {state.store.Favoritos.length}
                 </span>
             </button>
             <Offcanvas show={show} onHide={handleClose} placement='end'>

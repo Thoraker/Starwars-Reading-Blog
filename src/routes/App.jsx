@@ -22,7 +22,7 @@ const App = () => {
 
     return (
         <>
-            <NavbarComponent props={state} />
+            <NavbarComponent state={state} />
             <Outlet context={[state, setState]} />
         </>
     );

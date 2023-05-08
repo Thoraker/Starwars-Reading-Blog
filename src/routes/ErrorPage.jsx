@@ -1,4 +1,4 @@
-import { useRouteError } from 'react-router-dom';
+import { Link, useRouteError } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
@@ -16,7 +16,7 @@ const ErrorPage = () => {
                     Disculpen por las molestias causadas. <br />
                     Grrrrraaaarrrrr.
                 </Card.Text>
-                <Button variant="outline-warning" href='/'>Ir al Inicio</Button>
+                <Link to='/'>Volver al inicio</Link>
             </Card.Body>
             <Card.Footer>{error.statusText || error.message}</Card.Footer>
         </Card>

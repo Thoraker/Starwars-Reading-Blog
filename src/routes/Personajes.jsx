@@ -1,10 +1,9 @@
-import { useLoaderData } from "react-router-dom";
+import { useOutletContext } from "react-router-dom";
 import ShowRoom from "../components/ShowRoom";
 
-const allPeopleUrl = 'https://www.swapi.tech/api/people?page=1&limit=100'
-
 const Personajes = () => {
-    const data = useLoaderData()
+    const [state] = useOutletContext()
+    const data = state.store.Personajes
 
     return (
         <>
@@ -15,10 +14,3 @@ const Personajes = () => {
 };
 
 export default Personajes;
-
-export const peopleLoader = async () => {
-    const response = await fetch(allPeopleUrl)
-    const responseJson = await response.json()
-    const data = { name: 'Personajes', results: responseJson.results, imgUrl: 'https://starwars-visualguide.com/assets/img/characters/' }
-    return data
-}

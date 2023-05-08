@@ -1,20 +1,18 @@
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
-import { Form, useLoaderData } from 'react-router-dom';
+import Button from 'react-bootstrap/Button'
+import Card from 'react-bootstrap/Card'
+import { useOutletContext } from 'react-router-dom'
+import PropTypes from 'prop-types';
 
-export const addFavButton = async (element) => {
-    const initialFavList = useLoaderData()
-    const newFavList = [...initialFavList + element]
-    return newFavList
-}
+const CardsComponent = ({ props }) => {
+    const [state] = useOutletContext()
 
-const CardsComponent = (props) => {
-    console.log('buttons', props);
+    const url = props.imgUrl + props.uid + '.jpg'
+
     return (
         <div>
             <Card border="warning" bg='dark' text='warning'>
                 <Card.Img variant="top"
-                    src={props.imgUrl + props.uid + '.jpg'} alt={props.name}
+                    src={url} alt={props.name}
                     className='p-2'
                     onError={(e) => { e.target.src = 'https://starwars-visualguide.com/assets/img/placeholder.jpg' }}
                 />
@@ -24,14 +22,19 @@ const CardsComponent = (props) => {
                         Leer Mas...
                     </Card.Text>
                     <Button variant="outline-secondary">Detalles</Button>
-                    <Form method="post" action='addFavButton'>
-                        <Button variant="outline-danger"><i className="bi bi-bookmark-heart"></i></Button>
-                    </Form>
+                    <Button variant="outline-danger" onClick={e => state.actions.handlerFavButton(props)} ><i className="bi bi-bookmark-heart" ></i></Button>
                 </Card.Body>
             </Card>
         </div>
     );
 }
 
-export default CardsComponent;
+export default CardsComponent
 
+CardsComponent.propTypes = {
+    props: PropTypes.object,
+    name: PropTypes.string,
+    imgUrl: PropTypes.string,
+    url: PropTypes.string,
+    uid: PropTypes.string,
+}

@@ -7,8 +7,12 @@ import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
 import './Navbar.css'
 import OffcanvasComponent from './Offcanvas';
+import PropTypes from 'prop-types'
 
-const NavbarComponent = () => {
+const NavbarComponent = ({ state }) => {
+
+    console.log(state);
+
     const styleLinksTo = {
         maxHeight: '200px',
         textDecoration: 'none',
@@ -54,7 +58,7 @@ const NavbarComponent = () => {
                     <Button variant='outline-warning'
                         className='mx-2'
                     >Search</Button>
-                    <OffcanvasComponent />
+                    <OffcanvasComponent state={state} />
                 </Form>
             </Container>
         </Navbar>
@@ -62,3 +66,7 @@ const NavbarComponent = () => {
 }
 
 export default NavbarComponent;
+
+NavbarComponent.propTypes = {
+    state: PropTypes.object
+}

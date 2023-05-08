@@ -1,6 +1,6 @@
-import { Container, Row } from "react-bootstrap"
-import CardsComponent from "./Card"
-import PropTypes from 'prop-types'
+import { Container, Row } from "react-bootstrap";
+import CardsComponent from "./Card";
+import PropTypes from 'prop-types';
 
 
 const ShowRoom = ({ props }) => {
@@ -18,13 +18,13 @@ const ShowRoom = ({ props }) => {
                 }
             </Row>
         </Container>
-    )
-}
+    );
+};
 
-export default ShowRoom
+export default ShowRoom;
 
 ShowRoom.propTypes = {
     props: PropTypes.object,
     data: PropTypes.array,
     imgUrl: PropTypes.string,
-}
+};

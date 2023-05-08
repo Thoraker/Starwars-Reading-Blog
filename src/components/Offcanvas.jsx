@@ -1,8 +1,11 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import Offcanvas from 'react-bootstrap/Offcanvas';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
+import MiniCard from './MiniCard';
+import { AppContext } from '../routes/App';
 
-const OffcanvasComponent = ({ state }) => {
+const OffcanvasComponent = () => {
+    const state = useContext(AppContext)
 
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
@@ -24,13 +27,13 @@ const OffcanvasComponent = ({ state }) => {
                     {
                         state.store.Favoritos === undefined
                             ? 'Aun no tienes favoritos'
-                            : state.store.Favoritos.map((element) => { return <h4 key={element.name} >{element.name}</h4> })
+                            : state.store.Favoritos.map((element) => { return <MiniCard key={element.name} element={element} state={state} /> })
                     }
                 </Offcanvas.Body>
             </Offcanvas>
         </>
     );
-}
+};
 
 export default OffcanvasComponent;
 
@@ -38,4 +41,4 @@ OffcanvasComponent.propTypes = {
     state: PropTypes.object,
     store: PropTypes.object,
     Favoritos: PropTypes.array,
-}
+};

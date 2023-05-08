@@ -1,12 +1,13 @@
-import Button from 'react-bootstrap/Button'
-import Card from 'react-bootstrap/Card'
-import { useOutletContext } from 'react-router-dom'
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
 import PropTypes from 'prop-types';
+import { useContext } from 'react';
+import { AppContext } from '../routes/App';
 
 const CardsComponent = ({ props }) => {
-    const [state] = useOutletContext()
+    const state = useContext(AppContext);
 
-    const url = props.imgUrl + props.uid + '.jpg'
+    const url = props.imgUrl + props.uid + '.jpg';
 
     return (
         <div>
@@ -27,9 +28,9 @@ const CardsComponent = ({ props }) => {
             </Card>
         </div>
     );
-}
+};
 
-export default CardsComponent
+export default CardsComponent;
 
 CardsComponent.propTypes = {
     props: PropTypes.object,
@@ -37,4 +38,4 @@ CardsComponent.propTypes = {
     imgUrl: PropTypes.string,
     url: PropTypes.string,
     uid: PropTypes.string,
-}
+};

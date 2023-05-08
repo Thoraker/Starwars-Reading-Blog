@@ -1,8 +1,9 @@
-import { useOutletContext } from "react-router-dom";
 import ShowRoom from "../components/ShowRoom";
+import { useContext } from "react";
+import { AppContext } from "./App";
 
 const Planetas = () => {
-    const [state] = useOutletContext()
+    const state = useContext(AppContext)
     const data = state.store.Planetas
 
     return (

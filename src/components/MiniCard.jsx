@@ -1,19 +1,12 @@
 import PropTypes from 'prop-types';
+import { useContext } from 'react';
 import { Button, Card } from "react-bootstrap";
-import getState from '../resources/Flux';
+import { AppContext } from '../routes/App';
 
-const MiniCard = ({ element }, { state }) => {
 
-    const handlerFavButton = () => {
-        const storeCopy = state.store;
-        storeCopy.Favoritos.some((element) => element.name === data.name)
-            ? setStore({
-                Favoritos: storeCopy.Favoritos.filter(
-                    (element) => element.name !== data.name
-                ),
-            })
-            : setStore({ Favoritos: [...storeCopy.Favoritos, data] })
-    };
+const MiniCard = ({ element }) => {
+    const state = useContext(AppContext)
+
     return (
         <Card style={{ width: '18rem' }}>
             <Card.Body>
@@ -22,7 +15,7 @@ const MiniCard = ({ element }, { state }) => {
                     Leer Mas...
                 </Card.Text>
                 <Button variant="outline-secondary">Detalles</Button>
-                <Button variant="outline-danger" onClick={handlerFavButton(element)}><i className="bi bi-bookmark-heart" ></i></Button>
+                <Button variant="outline-danger" onClick={() => state.actions.handlerFavButton(element)}><i className="bi bi-bookmark-heart" ></i></Button>
             </Card.Body>
         </Card>
     );

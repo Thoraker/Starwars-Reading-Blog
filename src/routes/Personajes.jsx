@@ -1,8 +1,9 @@
-import { useOutletContext } from "react-router-dom";
 import ShowRoom from "../components/ShowRoom";
+import { useContext } from "react";
+import { AppContext } from "./App";
 
 const Personajes = () => {
-    const [state] = useOutletContext()
+    const state = useContext(AppContext)
     const data = state.store.Personajes
 
     return (

@@ -5,23 +5,23 @@ import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
-import './Navbar.css'
+import './Navbar.css';
 import OffcanvasComponent from './Offcanvas';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 
-const NavbarComponent = ({ state }) => {
+const NavbarComponent = () => {
 
     const styleLinksTo = {
         maxHeight: '200px',
         textDecoration: 'none',
         margin: '10px',
         text: 'yellow'
-    }
+    };
 
     const styleImg = {
         height: '7rem',
         width: 'auto'
-    }
+    };
 
     return (
         <Navbar
@@ -56,15 +56,15 @@ const NavbarComponent = ({ state }) => {
                     <Button variant='outline-warning'
                         className='mx-2'
                     >Search</Button>
-                    <OffcanvasComponent state={state} />
+                    <OffcanvasComponent />
                 </Form>
             </Container>
         </Navbar>
     );
-}
+};
 
 export default NavbarComponent;
 
 NavbarComponent.propTypes = {
     state: PropTypes.object
-}
+};

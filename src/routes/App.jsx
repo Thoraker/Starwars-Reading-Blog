@@ -1,8 +1,11 @@
 import './App.css';
 import NavbarComponent from '../components/Navbar';
 import { Outlet } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
 import getState from '../resources/Flux';
+
+export const AppContext = createContext(null)
+
 
 const App = () => {
     const [state, setState] = useState(
@@ -14,18 +17,20 @@ const App = () => {
                 actions: { ...state.actions },
             }),
         })
-    )
+    );
 
     useEffect(() => {
         state.actions.loadInitialData()
-    }, [])
+    }, []);
 
     return (
         <>
-            <NavbarComponent state={state} />
-            <Outlet context={[state, setState]} />
+            <AppContext.Provider value={state}>
+                <NavbarComponent />
+                <Outlet />
+            </AppContext.Provider>
         </>
     );
 };
 
-export default App;
+export default App

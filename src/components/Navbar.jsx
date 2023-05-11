@@ -6,8 +6,8 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
-import OffcanvasComponent from './Offcanvas';
 import PropTypes from 'prop-types';
+import DropdownFavs from './DropdownFavs';
 
 const NavbarComponent = () => {
 
@@ -56,7 +56,7 @@ const NavbarComponent = () => {
                     <Button variant='outline-warning'
                         className='mx-2'
                     >Search</Button>
-                    <OffcanvasComponent />
+                    <DropdownFavs />
                 </Form>
             </Container>
         </Navbar>

@@ -15,7 +15,12 @@ const MiniCard = ({ element }) => {
                     Leer Mas...
                 </Card.Text>
                 <Button variant="outline-secondary">Detalles</Button>
-                <Button variant="outline-danger" onClick={() => state.actions.handlerFavButton(element)}><i className="bi bi-bookmark-heart" ></i></Button>
+                <Button
+                    variant="outline-danger"
+                    onClick={() => state.actions.handlerFavButton(element)}
+                >
+                    <i className="bi bi-heart" ></i>
+                </Button>
             </Card.Body>
         </Card>
     );

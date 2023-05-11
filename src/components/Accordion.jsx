@@ -10,6 +10,7 @@ const AccordionComponent = () => {
 
     const data = Object.keys(state.store)
         .filter((key) => !key.includes('Favoritos'))
+        .filter((key) => !key.includes('Detalles'))
         .reduce((object, key) => {
             return Object.assign(object, {
                 [key]: state.store[key]

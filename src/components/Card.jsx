@@ -3,6 +3,7 @@ import Card from 'react-bootstrap/Card';
 import PropTypes from 'prop-types';
 import { useContext } from 'react';
 import { AppContext } from '../routes/App';
+import ExtendedCard from './ExtendedCard';
 
 const CardsComponent = ({ props }) => {
     const state = useContext(AppContext);
@@ -22,8 +23,8 @@ const CardsComponent = ({ props }) => {
                     <Card.Text>
                         Leer Mas...
                     </Card.Text>
-                    <Button variant="outline-secondary">Detalles</Button>
-                    <Button variant="outline-danger" onClick={e => state.actions.handlerFavButton(props)} ><i className="bi bi-bookmark-heart" ></i></Button>
+                    <ExtendedCard props={props} />
+                    <Button variant="outline-danger" onClick={e => state.actions.handlerFavButton(props)} ><i className="bi bi-heart" ></i></Button>
                 </Card.Body>
             </Card>
         </div>

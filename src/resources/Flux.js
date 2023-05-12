@@ -26,7 +26,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 					uid: '1',
 					__v: 0,
 				},
-				imgUrl: 'https://starwars-visualguide.com/assets/img/placeholder.jpg',
 			},
 		},
 
@@ -85,7 +84,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 						setStore({
 							Detalles: {
 								data: res.result,
-								imgUrl: data.imgUrl,
 							},
 						})
 					)

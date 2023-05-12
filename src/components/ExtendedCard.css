@@ -1,0 +1,11 @@
+p {
+	margin-bottom: 0.5rem;
+}
+
+.modal-body {
+	height: 385px;
+}
+
+#extendedCard {
+	height: 350px;
+}

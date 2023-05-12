@@ -1,3 +1,4 @@
+import './ExtendedCard.css';
 import { useContext, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
@@ -5,15 +6,16 @@ import { AppContext } from '../routes/App';
 import PropTypes from 'prop-types';
 
 const ExtendedCard = ({ props }) => {
+
+    console.log(props);
     const state = useContext(AppContext);
     const [show, setShow] = useState(false);
 
     const url = props.imgUrl + props.uid + '.jpg';
 
     const handlerButton = () => {
-        state.actions.handlerDetailsButton(props).then(() => {
-            setShow(true)
-        })
+        state.actions.handlerDetailsButton(props)
+        setShow(true)
     }
 
     const details = state.store.Detalles.data.properties
@@ -25,6 +27,7 @@ const ExtendedCard = ({ props }) => {
             </Button>
 
             <Modal
+                contentClassName='bg-dark border-warning text-warning'
                 show={show}
                 onHide={() => setShow(false)}
                 size="lg"
@@ -38,7 +41,7 @@ const ExtendedCard = ({ props }) => {
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <div className="card mb-3" >
+                    <div className="card mb-3 h-5 bg-dark border-warning text-warning overflow-y-auto" id='extendedCard'>
                         <div className="row g-0">
                             <div className="col-md-4">
                                 <img
@@ -49,10 +52,19 @@ const ExtendedCard = ({ props }) => {
                                 />
                             </div>
                             <div className="col-md-8">
-                                <div className="card-body">
-                                    <p className="card-text">Descripción : {state.store.Detalles.data.description}</p>
-                                    <p className="card-text">Planeta natal : {state.store.Detalles.data.properties.homeworld}</p>
-                                    <p className="card-text"><small className="text-body-secondary">Fuente: {state.store.Detalles.data.properties.url}</small></p>
+                                <div className="card-body ">
+                                    <p className="card-text ">Descripción : {state.store.Detalles.data.description}</p>
+                                    {
+                                        Object.entries(details).map(([key, value]) => {
+                                            return (
+                                                <>
+                                                    <p className='card-text'>
+                                                        {key}: {value}
+                                                    </p>
+                                                </>
+                                            )
+                                        })
+                                    }
                                 </div>
                             </div>
                         </div>

@@ -30,7 +30,7 @@ const DropdownFavs = () => {
                             : state.store.Favoritos.map((element) => {
                                 return (
                                     <Dropdown.Item key={element.name}>
-                                        <MiniCard key={element.name} element={element} state={state} />
+                                        <MiniCard key={element.name} props={element} />
                                     </Dropdown.Item>
                                 )
                             })
